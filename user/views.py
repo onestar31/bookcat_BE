@@ -28,13 +28,12 @@ class CreateView(View):
 
     def get(self, request):
         users = User.objects.values()
-        return JsonResponse({"data" : list(users)}, status = 200)
+        return JsonResponse({"data" : list(users)}, json_dumps_params={'ensure_ascii': False}, status = 200)
 
 class LoginView(View):
     def post(self, request):
         data = json.loads(request.body)
         User(
-            userName = data['userName'],
             userEmail = data['userEmail'],
             userPw = data['userPw'],
         )
@@ -46,7 +45,7 @@ class LoginView(View):
 
     def get(self, request):
         user = User.objects.values()
-        return JsonResponse({"list" : list(user)}, status = 200)
+        return JsonResponse({"list" : list(user)}, json_dumps_params={'ensure_ascii': False}, status = 200)
 
 
 '''
