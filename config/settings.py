@@ -25,7 +25,7 @@ SECRET_KEY = '++(s^cops$d2x5b330tjk-%=q+iy_1b8du+tjji&7w@&r^l3$$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost','127.0.0.1','127.0.0.1:3000','127.0.0.1:8000']
 
 
 #settings.py에서 인증, 관리자모드 관련된 내용 주석 처리(현재 단계에서는 미사용)
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'user',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +51,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+]
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ORIGIN_WHITELIST = [
+    'http://127.0.0.1:8000',
+    'http://127.0.0.1:3000',
 ]
 
 ROOT_URLCONF = 'config.urls'
