@@ -20,6 +20,7 @@ urlpatterns = [
     #path('', views.index, name='index'),  # '/' 에 해당되는 path
     path('admin/', admin.site.urls),
     path('user/', include('user.urls')),
+    path('review/', include('review.urls')),
 ]
 
 # https://developer0809.tistory.com/98?category=895002
