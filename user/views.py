@@ -29,9 +29,9 @@ class CreateView(View):
             User.objects.create(userEmail = userEmail, userName = userName, userPw = userPw)
             return JsonResponse({"message" : "회원으로 가입되셨습니다."}, json_dumps_params={'ensure_ascii': False}, status = 200)
 
-    def get(self, request):
+    '''def get(self, request):
         users = User.objects.values()
-        return JsonResponse({"data" : list(users)}, json_dumps_params={'ensure_ascii': False}, status = 200)
+        return JsonResponse({"data" : list(users)}, json_dumps_params={'ensure_ascii': False}, status = 200)'''
 
 class LoginView(View):
     def post(self, request):
@@ -57,9 +57,9 @@ class LoginView(View):
         else:
             return JsonResponse({"message" : "아이디나 비밀번호가 일치하지 않습니다."}, json_dumps_params={'ensure_ascii': False}, status = 401)
 
-    def get(self, request):
+    '''def get(self, request):
         user = User.objects.values()
-        return JsonResponse({"list" : list(user)}, json_dumps_params={'ensure_ascii': False}, status = 200)
+        return JsonResponse({"list" : list(user)}, json_dumps_params={'ensure_ascii': False}, status = 200)'''
 
 class ChangePw(View):
     def patch(self, request):
@@ -80,10 +80,3 @@ class ChangePw(View):
             return JsonResponse({"message": "비밀번호가 변경되었습니다."}, json_dumps_params={'ensure_ascii': False}, status=200)
         else:
             return JsonResponse({"message" : "기존 비밀번호가 올바르지 않습니다."}, json_dumps_params={'ensure_ascii': False}, status=401)
-
-'''
-출처
-[  https://velog.io/@trequartista/TIL14-Django-회원가입로그인-기능-구현  ]
-https://jinmay.github.io/2020/05/13/django/django-queryset-update/
-https://tutorial.djangogirls.org/ko/django_orm/
-'''
