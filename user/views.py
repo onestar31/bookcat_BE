@@ -29,9 +29,6 @@ class CreateView(View):
             User.objects.create(userEmail = userEmail, userName = userName, userPw = userPw)
             return JsonResponse({"message" : "회원으로 가입되셨습니다."}, json_dumps_params={'ensure_ascii': False}, status = 200)
 
-    '''def get(self, request):
-        users = User.objects.values()
-        return JsonResponse({"data" : list(users)}, json_dumps_params={'ensure_ascii': False}, status = 200)'''
 
 class LoginView(View):
     def post(self, request):
@@ -57,9 +54,6 @@ class LoginView(View):
         else:
             return JsonResponse({"message" : "아이디나 비밀번호가 일치하지 않습니다."}, json_dumps_params={'ensure_ascii': False}, status = 401)
 
-    '''def get(self, request):
-        user = User.objects.values()
-        return JsonResponse({"list" : list(user)}, json_dumps_params={'ensure_ascii': False}, status = 200)'''
 
 class ChangePw(View):
     def patch(self, request):
