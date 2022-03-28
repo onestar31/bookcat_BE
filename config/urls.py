@@ -19,13 +19,8 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    #path('', views.index, name='index'),  # '/' 에 해당되는 path
     path('', TemplateView.as_view(template_name='index.html')),
     path('admin/', admin.site.urls),
     path('user/', include('user.urls')),
     path('review/', include('review.urls')),
 ]
-
-# https://developer0809.tistory.com/98?category=895002
-# 8번 부터??
-# https://developer0809.tistory.com/92?category=895002
