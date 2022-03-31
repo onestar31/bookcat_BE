@@ -1,10 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 #from .models import Review, User   # serializers를 통해 DB를 받았기 때문에 models import 불필요
 #from user.models import User
 from datetime import date
 
 from .serializers import *
-from rest_framework import viewsets, status
+from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
